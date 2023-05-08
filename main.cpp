@@ -29,7 +29,7 @@ extern void ModEpollFd(int epfd, int fd, int ev);
 int main(int argc, char* argv[]) {
 	
 	if (argc <= 1) {
-		std::cout << "run server using commond: " << basename(argv[0]) << " port_number" << std::endl;
+		printf("run server using commond: %s port_number...\n", basename(argv[0]));
 		exit(-1);
 	}
 
@@ -40,7 +40,6 @@ int main(int argc, char* argv[]) {
 	Threadpool<HttpConn> *pool = NULL;
 	try {
 		pool = new Threadpool<HttpConn>;
-		std::cout << "main thread:" << pool << std::endl;
 	}
 	catch (...) {
 		exit(-1);
@@ -51,7 +50,7 @@ int main(int argc, char* argv[]) {
 
 	int lfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (lfd == -1) {
-		std::cout << "create listen socket error..." << std::endl;
+		printf("create listen socket error...\n");
 		exit(-1);
 	}
 
@@ -65,13 +64,13 @@ int main(int argc, char* argv[]) {
 	saddr.sin_family = AF_INET;
 	int ret = bind(lfd, (struct sockaddr*)&saddr, sizeof(saddr));
 	if (ret == -1) {
-		std::cout << "bind error..." << std::endl;
+		printf("bind error...\n");
 		exit(-1);
 	}
 
 	ret = listen(lfd, 8);
 	if (ret == -1) {
-		std::cout << "listen error..." << std::endl;
+		printf("listen error...\n");
 		exit(-1);
 	}
 
@@ -79,7 +78,7 @@ int main(int argc, char* argv[]) {
 	epoll_event events[MAX_EVENT_NUM];
 	int epfd = epoll_create(10);
 	if (epfd == -1) {
-		std::cout << "epoll_create error..." << std::endl;
+		printf("epoll_create error...\n");
 		exit(-1);
 	}
 
@@ -94,7 +93,7 @@ int main(int argc, char* argv[]) {
 		int event_num = epoll_wait(epfd, events, MAX_EVENT_NUM, -1);
 		//	如果是因中断导致的错误会返回错误号EINTR，此时不需要终止程序
 		if ((event_num < 0) && (errno != EINTR)) {
-			std::cout << "epoll_wait error" << std::endl;
+			printf("epoll_wait error\n");
 			break;
 		}
 
@@ -105,17 +104,19 @@ int main(int argc, char* argv[]) {
 				socklen_t len = sizeof(caddr);
 				int cfd = accept(lfd, (sockaddr*)&caddr, &len);
 				if (cfd == -1) {
-					std::cout << "accept error" << std::endl;
+					printf("accept error\n");
 					continue;
 				}
-
+				
 				if (HttpConn::user_count_ >= MAX_FD) {
 					/*char* msg = "The server is busy now...Please try again later...\n";
 					send(cfd, msg, strlen(msg), 0);*/
 					close(cfd);
 					continue;
 				}
-
+				char ip_buf[16];
+				inet_ntop(AF_INET, &caddr.sin_addr.s_addr, ip_buf, sizeof(ip_buf));
+				printf("client connect : %s\n", ip_buf);
 				users[cfd].Init(cfd, caddr);
 			}
 			else if (events[i].events & (EPOLLHUP | EPOLLRDHUP | EPOLLERR)) {
