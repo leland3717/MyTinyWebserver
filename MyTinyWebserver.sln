@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyTinyWebserver", "MyTinyWebserver.vcxproj", "{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|ARM.Build.0 = Debug|ARM
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|ARM.Deploy.0 = Debug|ARM
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|ARM64.Build.0 = Debug|ARM64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|x64.ActiveCfg = Debug|x64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|x64.Build.0 = Debug|x64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|x64.Deploy.0 = Debug|x64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|x86.ActiveCfg = Debug|x86
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|x86.Build.0 = Debug|x86
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Debug|x86.Deploy.0 = Debug|x86
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|ARM.ActiveCfg = Release|ARM
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|ARM.Build.0 = Release|ARM
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|ARM.Deploy.0 = Release|ARM
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|ARM64.ActiveCfg = Release|ARM64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|ARM64.Build.0 = Release|ARM64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|ARM64.Deploy.0 = Release|ARM64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|x64.ActiveCfg = Release|x64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|x64.Build.0 = Release|x64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|x64.Deploy.0 = Release|x64
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|x86.ActiveCfg = Release|x86
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|x86.Build.0 = Release|x86
+		{FBAD95ED-788E-404B-A173-B4E52B4BBBE8}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB208759-D82E-48B9-BC2D-BF899A77C6D3}
+	EndGlobalSection
+EndGlobal
