@@ -1,54 +1,15 @@
-﻿<!DOCTYPE html>
-
-<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
-<!-- saved from url=(0013)about:internet -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=5,6,7,8,9,10,11, chrome=1" />
-    <title>ECharts</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
 </head>
-
 <body>
-    <h1>html页面</h1>
-    <div id="Op">
-        <button onclick="click1()" style="width:100px;height:40px">html按钮</button>
-    </div>
-    <div id="main" style="width:1000px;height:500px;margin-left:-8px" />
-    <script src="echarts.js"></script>
-    <script>
-        myChart = echarts.init(document.getElementById('main'));
-        option = {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                type: 'line'
-            }]
-        };
-        myChart.setOption(option);
 
-        function jsShowHide(info) {
-            if (info == 0) {
-                myChart.clear();
-            }
-            else {
-                myChart.setOption(option);
-            }
-        }
-        function jsPushData(x, y) {
-            option.xAxis.data.push(x);
-            option.series[0].data.push(y);
-            myChart.setOption(option);
-        }
-
-        function click1() {
-            window.external.ShowMsg("这是一条信息,来自js，调用了C#");
-        }
-
-    </script>
+    <h1>欢迎来到首页~~~</h1> </br>
+    <img src="images/image1.jpg"  alt="ces" />
+    
 </body>
 </html>

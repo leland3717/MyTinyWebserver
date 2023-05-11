@@ -77,6 +77,8 @@
   <ItemGroup>
     <ClCompile Include="http_conn.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test_presure\webbench-1.5\socket.c" />
+    <ClCompile Include="test_presure\webbench-1.5\webbench.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="http_conn.h" />
@@ -86,6 +88,23 @@
   <ItemGroup>
     <None Include="README.md" />
     <None Include="resource\index.html" />
+    <None Include="test_presure\webbench-1.5\ChangeLog" />
+    <None Include="test_presure\webbench-1.5\COPYRIGHT" />
+    <None Include="test_presure\webbench-1.5\debian\changelog" />
+    <None Include="test_presure\webbench-1.5\debian\control" />
+    <None Include="test_presure\webbench-1.5\debian\copyright" />
+    <None Include="test_presure\webbench-1.5\debian\dirs" />
+    <None Include="test_presure\webbench-1.5\debian\rules" />
+    <None Include="test_presure\webbench-1.5\Makefile" />
+    <None Include="test_presure\webbench-1.5\tags" />
+    <None Include="test_presure\webbench-1.5\webbench" />
+    <None Include="test_presure\webbench-1.5\webbench.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\images\image1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="test_presure\webbench-1.5\webbench.o" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

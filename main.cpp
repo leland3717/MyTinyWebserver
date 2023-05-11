@@ -104,7 +104,7 @@ int main(int argc, char* argv[]) {
 				socklen_t len = sizeof(caddr);
 				int cfd = accept(lfd, (sockaddr*)&caddr, &len);
 				if (cfd == -1) {
-					printf("accept error\n");
+					printf("accept error, %s\n", strerror(errno));
 					continue;
 				}
 				

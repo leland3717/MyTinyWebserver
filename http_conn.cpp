@@ -58,6 +58,7 @@ void HttpConn::Init() {
 	method_ = GET;
 	url_ = 0;
 	version_ = 0;
+	host_ = 0;
 	linger_ = false;
 	content_len_ = 0;
 	file_mem_addr_ = 0;
@@ -65,6 +66,8 @@ void HttpConn::Init() {
 	write_idx_ = 0;
 	bytes_left_ = 0;
 	bzero(read_buf_, kReadBufSize);
+	bzero(write_buf_, kWriteBufSize);
+	bzero(target_path_, kFileNameLen);
 }
 
 void HttpConn::Init(int sock_fd, const sockaddr_in& addr) {
@@ -125,10 +128,9 @@ bool HttpConn::Write() {
 					iv_[0].iov_len -= total_send;
 				}
 				else {
-					// 或者改成iv_count_ = 1
 					iv_[0].iov_len = 0;
 					iv_[1].iov_base = file_mem_addr_ + total_send - write_idx_;
-					iv_[1].iov_len = file_stat_.st_size - (total_send - write_idx_);
+					iv_[1].iov_len = bytes_left_;
 				}
 				ModEpollFd(epoll_fd_, sock_fd_, EPOLLOUT);
 				return true;
@@ -223,9 +225,9 @@ HttpConn::HttpCode HttpConn::ParseRequestLine(char* text) {
 		return BAD_REQUEST;
 	}
 	*version_++ = '\0';
-	if (strcasecmp(version_, "HTTP/1.1") != 0) {
+	/*if (strcasecmp(version_, "HTTP/1.1") != 0) {
 		return BAD_REQUEST;
-	}
+	}*/
 
 	// 路径名可能为http://xxx.xxx.xxx.xxx/index.html，取出/index.html
 	if (strncasecmp(url_, "http://", 7) == 0) {
